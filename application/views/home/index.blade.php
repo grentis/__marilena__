@@ -1,57 +1,60 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Laravel: A Framework For Web Artisans</title>
-	<meta name="viewport" content="width=device-width">
-	{{ HTML::style('laravel/css/style.css') }}
-</head>
-<body>
-	<div class="wrapper">
-		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
+<div class="expired">
+	<table class="table alert-error">
+		<thead>
+			<tr>
+				<th>Scadenza</th>
+				<th>Cliente</th>
+				<th>Fattura</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>links</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
-			<p class="intro-text" style="margin-top: 45px;">
-			</p>
-		</header>
-		<div role="main" class="main">
-			<div class="home">
-				<h2>Learn the terrain.</h2>
+<div class="expiring">
+	<table class="table alert">
+		<thead>
+			<th>Scadenza</th>
+			<th>Cliente</th>
+			<th>Fattura</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>links</td>
+		</tbody>
+	</table>
+</div>
 
-				<p>
-					You've landed yourself on our default home page. The route that
-					is generating this page lives at:
-				</p>
-
-				<pre>{{ path('app') }}routes.php</pre>
-
-				<p>And the view sitting before you can be found at:</p>
-
-				<pre>{{ path('app') }}views/home/index.blade.php</pre>
-
-				<h2>Grow in knowledge.</h2>
-
-				<p>
-					Learning to use Laravel is amazingly simple thanks to
-					its {{ HTML::link('docs', 'wonderful documentation') }}.
-				</p>
-
-				<h2>Create something beautiful.</h2>
-
-				<p>
-					Now that you're up and running, it's time to start creating!
-					Here are some links to help you get started:
-				</p>
-
-				<ul class="out-links">
-					<li><a href="http://laravel.com">Official Website</a></li>
-					<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
-					<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
-				</ul>
-			</div>
-		</div>
+<div class="timeline row" id="timeline">
+	<div class="span9">
+		<div class="row t-month" data-index="-1">
+      <div class="span2 offset1 date">
+      	<span class="year">2012</span>
+      	<span class="month">Novembre</span>
+      </div>
+      <div class="span6 payments">
+      	@render('partials.month.payments', array('payments' => Payment::get_by_index(-1)))
+      </div>
+      <i></i>
+    </div>
+    <div class="row t-month" data-index="0">
+      <div class="span2 offset1 date"><span class="year">2012</span><span class="month">Dicembre</span></div>
+      <div class="span6 payments">
+      	<ul>
+      		@render('partials.month.payments', array('payments' => Payment::get_by_index(0)))
+      	</ul>
+      </div>
+    </div>
 	</div>
-</body>
-</html>
+</div>

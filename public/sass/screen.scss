@@ -1,0 +1,65 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "bootstrap/compass_twitter_bootstrap";
+@import "compass/css3/border-radius";
+
+body {
+  padding-top: 60px;
+}
+
+.expired table,
+.expiring table {
+  @include border-radius(8);
+}
+
+.timeline {
+  height:300px;
+  overflow-y:hidden;
+  position:relative;
+  
+  .t-month {
+    position:relative;
+
+    & > i {
+      position:absolute;
+      left:80px;
+      bottom:0;
+      border-bottom:1px solid #EEE;
+      width:600px;
+    }
+  }
+
+  .date {
+    padding-top:20px;
+
+    span {
+      display: block;
+      text-align: right;
+    }
+
+    .year {
+      font-size:46px;
+      letter-spacing:0;
+      line-height:46px;
+      font-weight:bold;
+      color:#EEE;
+    }
+    .month {
+      font-size:26px;
+      line-height:16px;
+      letter-spacing:1px;
+      color:#CCC;
+    }
+  }
+
+  .payments > ul {
+    min-height:80px;
+    margin:0;
+    padding:30px 0 60px 20px;
+    list-style-type: none;
+    border-left:1px solid #EEE;
+  }
+}
