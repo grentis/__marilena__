@@ -17,6 +17,16 @@ Date.prototype.getFullMonth = function () {
 
 $(function() {
 
+  function index_from_date(date) {
+    var now = new Date()
+    if (date.getTime() > now.getTime()) {
+      console.log('futuro')
+      return (date.getFullYear() - now.getFullYear()) * 12 - now.getMonth() + date.getMonth();
+    } else {
+      return -1 * (now.getFullYear() - date.getFullYear()) * 12 - now.getMonth() + date.getMonth();
+    }
+  }
+
   var date_from_index = function(index) {
     var d = new Date();
     d.setMonth(d.getMonth()+parseInt(index));
@@ -31,20 +41,54 @@ $(function() {
     $('.year', $c).html(d.getFullYear());
     $('.month', $c).html(d.getFullMonth());
     $('.payments', $c).html('<ul/>').load('month/load/' + $c.attr('data-index'));
-    return (type == 1) ? $c.insertAfter($from) : $c.insertBefore($from);
+    if (type == 1) {
+      return $c.insertAfter($from)
+    } else {
+      $c.insertBefore($from);
+      $("#timeline").stop(true, true).scrollTop($("#timeline").scrollTop() + $c.height());
+      return $c;
+    }
+  }
+
+  var go_to_month = function(index){
+    var $m = $("#timeline .t-month[data-index=" + index + "]");
+    var $from = (index > 0) ? $('#timeline .t-month:last-child') : $('#timeline .t-month:first-child');
+    var from_index = parseInt($from.attr('data-index'));
+    if ($m.length <= 0) {
+      for (var i = 0; i < Math.abs(index - from_index); i++) {
+        if (index > 0) {
+          $m = new_month(1);
+        } else {
+          $m = new_month(-1);
+        }
+      }
+    }
+    move_timeline($m, 200 * Math.abs(index - from_index) + 1);
+  }
+
+  var move_timeline = function(position, speed, callback) {
+    var internal =
+    $("#timeline").stop(true, true).scrollTo(position, {duration: speed, onAfter: function() {
+      $.each($(".t-month", $(this)), function(index, value) {
+        if ($(this).position().top >= -60) {
+          var d = date_from_index($(this).attr('data-index'));
+          var $cmonth = $('#change_month');
+          $('select', $cmonth).val(d.getMonth());
+          $('input', $cmonth).val(d.getFullYear());
+          return false;
+        }
+      });
+      if (typeof callback == 'function') {
+        callback.call(this);
+      }
+    }});
   }
 
   $("#timeline").mousewheel(function(event, delta) {
-    $(this).stop(true, true).animate({
-        scrollTop: '-=' + (delta * 50)
-      }, 100);
     if (delta > 0) {
       var first = $('#timeline .t-month:first-child');
       if (first.position().top >= -40) {
         first = new_month(-1);
-        $(this).stop(true, true).animate({
-          scrollTop: '+=' + (first.height())
-        }, 1);
       }
     } else {
       var last = $('#timeline .t-month:last-child');
@@ -52,6 +96,17 @@ $(function() {
         new_month(+1);
       }
     }
+    move_timeline($(this).scrollTop() - (delta * 50), 100);
+  });
+
+  $(document).on('click.ml', '#change_month button', function(event){
+    var $form = $(this).closest('#change_month');
+    var year = $('input', $form).val();
+    var month = $('select', $form).val();
+    var date = new Date(year, month, 1);
+    go_to_month(index_from_date(date));
+    event.preventDefault();
+    return false;
   });
 
   /*$(window).scroll(function() {
@@ -88,3 +143,16 @@ $(function() {
 
   });*/
 });
+
+
+
+
+
+
+
+
+
+
+
+
+/* http://net.onextrapixel.com/wp-content/uploads/2010/10/articlelists.jpg */

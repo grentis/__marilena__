@@ -26,7 +26,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
   </div>
@@ -35,12 +35,32 @@
       <div class="span9">
         {{ $content }}
       </div>
-      <div class="span3">s</div>
+      <div class="span3">
+        <div id="change_month">
+          <select>
+            <option value="0">Gennaio</option>
+            <option value="1">Febbraio</option>
+            <option value="2">Marzo</option>
+            <option value="3">Aprile</option>
+            <option value="4">Maggio</option>
+            <option value="5">Giugno</option>
+            <option value="6">Luglio</option>
+            <option value="7">Agosto</option>
+            <option value="8">Settembre</option>
+            <option value="9">Ottobre</option>
+            <option value="10">Novembre</option>
+            <option value="11">Dicembre</option>
+          </select>
+          <input type="text" value="2012" />
+          <button class="btn">Ciao</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="js/jquery.mousewheel.js"></script>
+  <script src="js/jquery.scrollTo-min.js"></script>
   <script src="js/web.js"></script>
 </body>
 </html>

@@ -38,22 +38,20 @@
 
 <div class="timeline row" id="timeline">
 	<div class="span9">
-		<div class="row t-month" data-index="-1">
+		<div class="row t-month" data-index="0">
       <div class="span2 offset1 date">
       	<span class="year">2012</span>
-      	<span class="month">Novembre</span>
+      	<span class="month">Dicembre</span>
       </div>
       <div class="span6 payments">
-      	@render('partials.month.payments', array('payments' => Payment::get_by_index(-1)))
+      	@render('partials.month.payments', array('payments' => Payment::get_by_index(0)))
       </div>
       <i></i>
     </div>
-    <div class="row t-month" data-index="0">
-      <div class="span2 offset1 date"><span class="year">2012</span><span class="month">Dicembre</span></div>
+    <div class="row t-month" data-index="1">
+      <div class="span2 offset1 date"><span class="year">2013</span><span class="month">Gennaio</span></div>
       <div class="span6 payments">
-      	<ul>
-      		@render('partials.month.payments', array('payments' => Payment::get_by_index(0)))
-      	</ul>
+      	@render('partials.month.payments', array('payments' => Payment::get_by_index(1)))
       </div>
     </div>
 	</div>

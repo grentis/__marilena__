@@ -58,7 +58,7 @@ class Home_Controller extends Base_Controller {
 		$payment->month = 12;
 		$payment->year = 2012;
 		$payment->invoice_id = 2;
-		$payment->paid = TRUE;
+		$payment->paid = FALSE;
 		$payment->save();
 		return "ok";
 	}
