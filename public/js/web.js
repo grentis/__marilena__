@@ -70,10 +70,11 @@ $(function() {
     var internal =
     $("#timeline").stop(true, true).scrollTo(position, {duration: speed, onAfter: function() {
       $.each($(".t-month", $(this)), function(index, value) {
+        console.log($(this).attr('data-index') + "" + $(this).position().top)
         if ($(this).position().top >= -60) {
           var d = date_from_index($(this).attr('data-index'));
           var $cmonth = $('#change_month');
-          $('select', $cmonth).val(d.getMonth());
+          $('.select .value', $cmonth).attr("data-index", d.getMonth()).html(d.getFullMonth());
           $('input', $cmonth).val(d.getFullYear());
           return false;
         }
@@ -99,15 +100,21 @@ $(function() {
     move_timeline($(this).scrollTop() - (delta * 50), 100);
   });
 
-  $(document).on('click.ml', '#change_month button', function(event){
+  $(document).on('click.ml', '#change_month button.change', function(event){
     var $form = $(this).closest('#change_month');
-    var year = $('input', $form).val();
-    var month = $('select', $form).val();
+    var year = parseInt($('input', $form).val());
+    var month = parseInt($('.select .value', $form).attr('data-index'));
     var date = new Date(year, month, 1);
     go_to_month(index_from_date(date));
     event.preventDefault();
     return false;
+  }).on('click.ml', '#change_month a', function(event) {
+    var $this = $(this);
+    $('.select .value', $this.closest('#change_month')).html($this.html()).attr('data-index', $this.attr('data-index'));
+    event.preventDefault();
   });
+
+  move_timeline($('.t-month[data-index=0]'), 500);
 
   /*$(window).scroll(function() {
     clearTimeout(time);

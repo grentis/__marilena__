@@ -37,22 +37,30 @@
       </div>
       <div class="span3">
         <div id="change_month">
-          <select>
-            <option value="0">Gennaio</option>
-            <option value="1">Febbraio</option>
-            <option value="2">Marzo</option>
-            <option value="3">Aprile</option>
-            <option value="4">Maggio</option>
-            <option value="5">Giugno</option>
-            <option value="6">Luglio</option>
-            <option value="7">Agosto</option>
-            <option value="8">Settembre</option>
-            <option value="9">Ottobre</option>
-            <option value="10">Novembre</option>
-            <option value="11">Dicembre</option>
-          </select>
-          <input type="text" value="2012" />
-          <button class="btn">Ciao</button>
+          <div class="input-prepend input-append">
+            <div class="btn-group">
+              <button class="btn dropdown-toggle select" data-toggle="dropdown">
+                <span class="value" data-index="{{ date('m') - 1 }}">{{ Helper::month_as_string(date('m')) }}</span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a data-index="0" tabindex="-1" href="#">Gennaio</a></li>
+                <li><a data-index="1" tabindex="-1" href="#">Febbraio</a></li>
+                <li><a data-index="2" tabindex="-1" href="#">Marzo</a></li>
+                <li><a data-index="3" tabindex="-1" href="#">Aprile</a></li>
+                <li><a data-index="4" tabindex="-1" href="#">Maggio</a></li>
+                <li><a data-index="5" tabindex="-1" href="#">Giugno</a></li>
+                <li><a data-index="6" tabindex="-1" href="#">Luglio</a></li>
+                <li><a data-index="7" tabindex="-1" href="#">Agosto</a></li>
+                <li><a data-index="8" tabindex="-1" href="#">Settembre</a></li>
+                <li><a data-index="9" tabindex="-1" href="#">Ottobre</a></li>
+                <li><a data-index="10" tabindex="-1" href="#">Novembre</a></li>
+                <li><a data-index="11" tabindex="-1" href="#">Dicembre</a></li>
+              </ul>
+            </div>
+            <input class="span2" type="text">
+            <button class="btn change">Ciaos</button>
+          </div>
         </div>
       </div>
     </div>
@@ -61,6 +69,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="js/jquery.mousewheel.js"></script>
   <script src="js/jquery.scrollTo-min.js"></script>
+  <script src="js/bootstrap-dropdown.js"></script>
   <script src="js/web.js"></script>
 </body>
 </html>

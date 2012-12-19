@@ -14,6 +14,8 @@
 
 ini_set('display_errors', 'On');
 
+setlocale(LC_TIME, 'it_IT');
+
 /*
 |--------------------------------------------------------------------------
 | Laravel Configuration Loader

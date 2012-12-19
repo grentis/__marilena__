@@ -6,6 +6,6 @@ class Client extends MyEloquent
 
   public function invoices()
   {
-    return $this->has_many('Invoices');
+    return $this->has_many('Invoice');
   }
 }

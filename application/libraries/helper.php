@@ -1,6 +1,12 @@
 <?php
 
 class Helper {
+
+  public static function get_date_by_index($index)
+  {
+    return strtotime(date("Y-m-d", strtotime(date("Y-m-d"))) . "+" . $index . " month");
+  }
+
   public static function month_as_string($month_index = 0) 
   {
     switch ($month_index) 

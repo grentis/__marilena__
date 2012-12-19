@@ -35,7 +35,8 @@ class Home_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-		$this->layout->nest('content', 'home.index');
+		$expired = Payment::get_expired();
+		$this->layout->nest('content', 'home.index', array('all_expired' => $expired));
 	}
 
 	public function action_dati() {
@@ -54,8 +55,8 @@ class Home_Controller extends Base_Controller {
 		$invoice->save();
 
 		$payment = new Payment();
-		$payment->value = 120;
-		$payment->month = 12;
+		$payment->value = 125;
+		$payment->month = 10;
 		$payment->year = 2012;
 		$payment->invoice_id = 2;
 		$payment->paid = FALSE;

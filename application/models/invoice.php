@@ -11,6 +11,6 @@ class Invoice extends MyEloquent
 
   public function payments()
   {
-    return $this->has_many('Payments');
+    return $this->has_many('Payment')->order_by('year')->order_by('month');
   }
 }

@@ -6403,68 +6403,133 @@ a.label:hover, a.badge:hover {
   position: fixed;
 }
 
-/* line 9, ../sass/screen.scss */
+/* line 11, ../sass/screen.scss */
 body {
   padding-top: 60px;
 }
 
-/* line 14, ../sass/screen.scss */
-.expired table,
-.expiring table {
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  -ms-border-radius: 8;
-  -o-border-radius: 8;
-  border-radius: 8;
+/* line 15, ../sass/screen.scss */
+#expired {
+  margin-bottom: 50px;
+  background-color: #f2dede;
+  border: 1px solid #eed3d7;
+  color: #b94a48;
+}
+/* line 21, ../sass/screen.scss */
+#expired ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 27, ../sass/screen.scss */
+#expired .media {
+  border-top: 1px dotted #eed3d7;
+  padding-top: 15px;
+}
+/* line 31, ../sass/screen.scss */
+#expired .media:first-child {
+  border: 0;
+  padding-top: 0;
+}
+/* line 36, ../sass/screen.scss */
+#expired .media .label {
+  width: 100px;
+  text-align: center;
 }
 
-/* line 18, ../sass/screen.scss */
-.timeline {
-  height: 300px;
+/* line 43, ../sass/screen.scss */
+#timeline {
+  height: 400px;
   overflow-y: hidden;
   position: relative;
 }
-/* line 23, ../sass/screen.scss */
-.timeline .t-month {
+/* line 48, ../sass/screen.scss */
+#timeline .t-month {
   position: relative;
 }
-/* line 26, ../sass/screen.scss */
-.timeline .t-month > i {
+/* line 51, ../sass/screen.scss */
+#timeline .t-month > i {
   position: absolute;
   left: 80px;
   bottom: 0;
   border-bottom: 1px solid #EEE;
   width: 600px;
 }
-/* line 35, ../sass/screen.scss */
-.timeline .date {
+/* line 60, ../sass/screen.scss */
+#timeline .date {
   padding-top: 20px;
 }
-/* line 38, ../sass/screen.scss */
-.timeline .date span {
+/* line 63, ../sass/screen.scss */
+#timeline .date span {
   display: block;
   text-align: right;
 }
-/* line 43, ../sass/screen.scss */
-.timeline .date .year {
+/* line 68, ../sass/screen.scss */
+#timeline .date .year {
   font-size: 46px;
   letter-spacing: 0;
   line-height: 46px;
   font-weight: bold;
   color: #EEE;
 }
-/* line 50, ../sass/screen.scss */
-.timeline .date .month {
+/* line 75, ../sass/screen.scss */
+#timeline .date .month {
   font-size: 26px;
   line-height: 16px;
   letter-spacing: 1px;
   color: #CCC;
 }
-/* line 58, ../sass/screen.scss */
-.timeline .payments > ul {
+/* line 83, ../sass/screen.scss */
+#timeline .payments > ul {
   min-height: 80px;
   margin: 0;
   padding: 30px 0 60px 20px;
   list-style-type: none;
   border-left: 1px solid #EEE;
+}
+/* line 90, ../sass/screen.scss */
+#timeline .payments > ul .paid {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+}
+/* line 94, ../sass/screen.scss */
+#timeline .payments > ul .to-be-paid .label {
+  visibility: hidden;
+}
+/* line 99, ../sass/screen.scss */
+#timeline .payments > ul .media {
+  border-top: 1px solid #EEE;
+  padding-top: 15px;
+}
+/* line 103, ../sass/screen.scss */
+#timeline .payments > ul .media:first-child {
+  border: 0;
+  padding-top: 0;
+}
+/* line 110, ../sass/screen.scss */
+#timeline .label {
+  width: 60px;
+  text-align: center;
+}
+
+/* line 117, ../sass/screen.scss */
+#change_month .select {
+  width: 110px;
+  background-color: #FFF;
+  background-image: none;
+  text-align: left;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* line 124, ../sass/screen.scss */
+#change_month .select .caret {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+/* line 131, ../sass/screen.scss */
+#change_month input {
+  height: auto;
+  width: 50px;
 }
