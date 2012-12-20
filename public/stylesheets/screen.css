@@ -6409,45 +6409,50 @@ body {
 }
 
 /* line 15, ../sass/screen.scss */
+input[type=text] {
+  height: auto;
+}
+
+/* line 19, ../sass/screen.scss */
 #expired {
   margin-bottom: 50px;
   background-color: #f2dede;
   border: 1px solid #eed3d7;
   color: #b94a48;
 }
-/* line 21, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 #expired ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-/* line 27, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 #expired .media {
   border-top: 1px dotted #eed3d7;
   padding-top: 15px;
 }
-/* line 31, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #expired .media:first-child {
   border: 0;
   padding-top: 0;
 }
-/* line 36, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 #expired .media .label {
   width: 100px;
   text-align: center;
 }
 
-/* line 43, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 #timeline {
   height: 400px;
   overflow-y: hidden;
   position: relative;
 }
-/* line 48, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 #timeline .t-month {
   position: relative;
 }
-/* line 51, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 #timeline .t-month > i {
   position: absolute;
   left: 80px;
@@ -6455,16 +6460,27 @@ body {
   border-bottom: 1px solid #EEE;
   width: 600px;
 }
-/* line 60, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
+#timeline .t-month .new_payment {
+  position: absolute;
+  bottom: 20px;
+  left: 160px;
+  display: none;
+}
+/* line 71, ../sass/screen.scss */
+#timeline .t-month:hover .new_payment {
+  display: block;
+}
+/* line 77, ../sass/screen.scss */
 #timeline .date {
   padding-top: 20px;
 }
-/* line 63, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 #timeline .date span {
   display: block;
   text-align: right;
 }
-/* line 68, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 #timeline .date .year {
   font-size: 46px;
   letter-spacing: 0;
@@ -6472,14 +6488,14 @@ body {
   font-weight: bold;
   color: #EEE;
 }
-/* line 75, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #timeline .date .month {
   font-size: 26px;
   line-height: 16px;
   letter-spacing: 1px;
   color: #CCC;
 }
-/* line 83, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 #timeline .payments > ul {
   min-height: 80px;
   margin: 0;
@@ -6487,32 +6503,32 @@ body {
   list-style-type: none;
   border-left: 1px solid #EEE;
 }
-/* line 90, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 #timeline .payments > ul .paid {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
 }
-/* line 94, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 #timeline .payments > ul .to-be-paid .label {
   visibility: hidden;
 }
-/* line 99, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 #timeline .payments > ul .media {
   border-top: 1px solid #EEE;
   padding-top: 15px;
 }
-/* line 103, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 #timeline .payments > ul .media:first-child {
   border: 0;
   padding-top: 0;
 }
-/* line 110, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 #timeline .label {
   width: 60px;
   text-align: center;
 }
 
-/* line 117, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 #change_month .select {
   width: 110px;
   background-color: #FFF;
@@ -6522,14 +6538,13 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-/* line 124, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 #change_month .select .caret {
   position: absolute;
   top: 5px;
   right: 10px;
 }
-/* line 131, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 #change_month input {
-  height: auto;
   width: 50px;
 }

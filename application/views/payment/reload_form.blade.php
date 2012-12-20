@@ -1,0 +1,1 @@
+$('#payment_modal').html("{{ Helper::scriptify(render('partials.payment.form', array('payment' => $payment))) }}");

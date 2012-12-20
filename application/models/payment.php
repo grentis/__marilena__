@@ -8,6 +8,10 @@ class Payment extends MyEloquent
     'value' => 'required'
   );
 
+  public static $rules_messages = array(
+    'value_required' => 'L\'importo è obbligatorio'
+  );
+
   public function invoice()
   {
     return $this->belongs_to('Invoice');

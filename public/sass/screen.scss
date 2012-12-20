@@ -12,6 +12,10 @@ body {
   padding-top: 60px;
 }
 
+input[type=text] {
+  height:auto;
+}
+
 #expired {
   margin-bottom:50px;
   background-color:$errorBackground;
@@ -54,6 +58,19 @@ body {
       bottom:0;
       border-bottom:1px solid #EEE;
       width:600px;
+    }
+
+    .new_payment {
+      position:absolute;
+      bottom:20px;
+      left:160px;
+      display: none;
+    }
+
+    &:hover {
+      .new_payment {
+        display: block;
+      }
     }
   }
 
@@ -129,7 +146,6 @@ body {
   }
 
   input {
-    height:auto;
     width:50px;
   }
 }

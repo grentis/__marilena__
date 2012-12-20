@@ -4,6 +4,7 @@ class MyEloquent extends Eloquent
 {
 
   public static $rules = array();
+  public static $rules_messages = array();
   
   function save() 
   {
@@ -17,7 +18,7 @@ class MyEloquent extends Eloquent
 
     if(static::$rules) 
     {
-      $validator = Validator::make($this->attributes, static::$rules);
+      $validator = Validator::make($this->attributes, static::$rules, static::$rules_messages);
       if( ! $validator->valid()) 
       {
         $this->errors = $validator->errors;

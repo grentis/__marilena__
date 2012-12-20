@@ -62,6 +62,9 @@ $(function() {
           $m = new_month(-1);
         }
       }
+      if ($m.next().length <= 0) {
+        new_month(1);
+      }
     }
     move_timeline($m, 200 * Math.abs(index - from_index) + 1);
   }
@@ -112,6 +115,25 @@ $(function() {
     var $this = $(this);
     $('.select .value', $this.closest('#change_month')).html($this.html()).attr('data-index', $this.attr('data-index'));
     event.preventDefault();
+  }).on('click.ml', '.new_payment', function(event) {
+    event.preventDefault();
+    $('<div class="modal" id="payment_modal"></div>').load($(this).attr('href')).appendTo($('body')).modal();
+    return false;
+  }).on('submit.ml', 'form[data-remote=true]', function(event) {
+    event.preventDefault();
+    var $this = $(this);
+    var form_data = $this.serialize();
+    $.ajax({
+      url: $this.attr('action'),
+      type: 'POST',
+      async : false,
+      data: form_data,
+      success: function(msg) {
+        console.log(msg);
+        eval(msg);
+      }
+    });
+    return false;
   });
 
   move_timeline($('.t-month[data-index=0]'), 500);

@@ -70,6 +70,7 @@
   <script src="js/jquery.mousewheel.js"></script>
   <script src="js/jquery.scrollTo-min.js"></script>
   <script src="js/bootstrap-dropdown.js"></script>
+  <script src="js/bootstrap-modal.js"></script>
   <script src="js/web.js"></script>
 </body>
 </html>
