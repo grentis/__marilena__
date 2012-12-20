@@ -33,7 +33,14 @@ class Payment extends MyEloquent
   }
 
   public static function get_expired() {
-    return Payment::with(array('invoice', 'invoice.client'))->where('year', '<=', date('Y'))->where('month', '<', date('m'))->where('paid', '=', FALSE)->order_by('year')->order_by('month')->get();
+    return Payment::with(array('invoice', 'invoice.client'))->where_nested(function($query){
+        $query->where('year', '<', date('Y'));
+        $query->where_nested(function($query2) {
+          $query2->where('year', '=', date('Y'));
+          $query2->where('month', '<', date('m'));
+        }, 'OR');
+      }, 'AND')->where('paid', '=', 0)->order_by('year')->order_by('month')->get();
+    //var_dump(DB::profile());
   }
 
   public static function get_by_index($index)
