@@ -6,7 +6,7 @@
 	<div class="span9">
 		@foreach (array(-1,0,1,2,3,4) as $index)
 			<div class="row t-month" data-index="{{ $index }}">
-				<a href="payment/new/{{ $index }}" class="new_payment">Aggiungi rata</a>
+				<a href="#" class="new_payment">Aggiungi rata</a>
 	      <div class="span2 offset1 date">
 	      	<?php 
 	      		$date = Helper::get_date_by_index($index);

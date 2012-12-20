@@ -117,7 +117,7 @@ $(function() {
     event.preventDefault();
   }).on('click.ml', '.new_payment', function(event) {
     event.preventDefault();
-    $('<div class="modal" id="payment_modal"></div>').load($(this).attr('href')).appendTo($('body')).modal();
+    $('<div class="modal" id="payment_modal"></div>').load('payment/new/' + $(this).closest('.t-month').attr('data-index')).appendTo($('body')).modal();
     return false;
   }).on('submit.ml', 'form[data-remote=true]', function(event) {
     event.preventDefault();
